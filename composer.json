@@ -1,0 +1,33 @@
+{
+    "name": "alexevladgabriel/php-tcpshield",
+    "description": "PHP binding for the TCPShield Client API",
+    "require": {
+        "guzzlehttp/guzzle": "^7.3",
+        "php": ">=7.2.5",
+        "psr/http-message": "~1.0",
+        "ext-json": "*",
+        "cloudflare/sdk": "^1.2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpmd/phpmd": "^2.10",
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Alexe Vlad",
+            "email": "alexe.vlad@wirehills.ro"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "TCPShield\\API\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
