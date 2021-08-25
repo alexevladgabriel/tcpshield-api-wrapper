@@ -42,25 +42,23 @@ class Backends implements BackendsInterface
     /**
      * @param string $name
      * @param array $backends
-     * @return bool
+     * @return stdClass
      */
     public function addBackend(
         string $name = '',
         array $backends = []
-    ): bool {
-        if(!empty($name)) {
-            $options = [
-                'name' => $name,
-                'backends' => $backends,
-            ];
+    ): stdClass {
+        $options = [
+            'backends' => $backends,
+        ];
 
-            $backendSets = $this->adapter->post("networks/{$this->network}/backendSets", $options);
-            $this->body = json_decode($backendSets->getBody());
+        if(!empty($name))
+            $options['name'] = $name;
 
-            return true;
-        }
+        $backendSets = $this->adapter->post("networks/{$this->network}/backendSets", $options);
+        $this->body = json_decode($backendSets->getBody());
 
-        return false;
+        return (object)$this->body;
     }
 
     /**

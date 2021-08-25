@@ -26,9 +26,9 @@ interface BackendsInterface
     /**
      * @param string $name
      * @param array $backends
-     * @return bool
+     * @return stdClass
      */
-    public function addBackend(string $name, array $backends): bool;
+    public function addBackend(string $name, array $backends): stdClass;
 
     /**
      * @param string $backendId
