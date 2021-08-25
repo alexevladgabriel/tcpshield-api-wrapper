@@ -117,13 +117,13 @@ class Domains implements DomainsInterface
     public function deleteDomain(string $domainId): bool
     {
         try {
-            $domain = $this->adapter->delete("networks/{$this->network}/$domainId");
+            $domain = $this->adapter->delete("networks/{$this->network}/domains/{$domainId}");
         } catch (ResponseException $exception) {
             return false;
         }
 
         $this->body = json_decode($domain->getBody());
-        if($this->body->message == "")
+        if($this->body->message == "Domain deleted successfully.")
                 return true;
 
         return false;
