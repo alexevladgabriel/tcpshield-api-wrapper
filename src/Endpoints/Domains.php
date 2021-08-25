@@ -135,7 +135,7 @@ class Domains implements DomainsInterface
      */
     public function preVerifyDomain(string $domainName): bool
     {
-        if(!empty($domainName))
+        if(empty($domainName))
             return false;
 
         $domain = $this->adapter->post("networks/{$this->network}/domains/preverify", [ 'domain_name' => $domainName ]);
@@ -153,7 +153,7 @@ class Domains implements DomainsInterface
      */
     public function verifyDomain(string $domainId): bool
     {
-        if(!empty($domainId))
+        if(empty($domainId))
             return false;
 
         $domain = $this->adapter->get("networks/{$this->network}/domains/{$domainId}/verify");
